@@ -12,34 +12,41 @@ use Psr\Log\LoggerInterface;
 /**
  * Class BaseController
  *
- * BaseController provides a convenient place for loading components
- * and performing functions that are needed by all your controllers.
- * Extend this class in any new controllers:
+ * BaseController menyediakan tempat yang nyaman untuk memuat komponen
+ * dan melakukan fungsi yang dibutuhkan oleh semua kontroler Anda.
+ * Perluas kelas ini di kontroler baru:
  *     class Home extends BaseController
  *
- * For security be sure to declare any new methods as protected or private.
+ * Untuk keamanan, pastikan mendeklarasikan metode baru sebagai protected atau private.
  */
 abstract class BaseController extends Controller
 {
     /**
-     * Instance of the main Request object.
+     * Instance dari objek Request utama.
      *
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
 
     /**
-     * An array of helpers to be loaded automatically upon
-     * class instantiation. These helpers will be available
-     * to all other controllers that extend BaseController.
+     * Array helper yang akan dimuat secara otomatis
+     * saat instansiasi kelas. Helper ini akan tersedia
+     * untuk semua kontroler lain yang memperluas BaseController.
      *
      * @var list<string>
      */
     protected $helpers = [];
 
     /**
-     * Be sure to declare properties for any property fetch you initialized.
-     * The creation of dynamic property is deprecated in PHP 8.2.
+     * Properti untuk menyimpan nama.
+     *
+     * @var string
+     */
+    protected $nama = "Ashri";
+
+    /**
+     * Pastikan untuk mendeklarasikan properti untuk properti yang Anda inisialisasi.
+     * Pembuatan properti dinamis tidak disarankan di PHP 8.2.
      */
     // protected $session;
 
@@ -48,11 +55,12 @@ abstract class BaseController extends Controller
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
-        // Do Not Edit This Line
+        // Jangan Mengedit Baris Ini
         parent::initController($request, $response, $logger);
 
-        // Preload any models, libraries, etc, here.
+        // Muat model, library, dll, di sini.
 
-        // E.g.: $this->session = \Config\Services::session();
+        // Contoh: $this->session = \Config\Services::session();
+        $this->nama = 'Ashri';
     }
 }
